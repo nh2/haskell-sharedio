@@ -53,7 +53,7 @@ newSharedIO = SharedIO <$> newIORef Nothing
 --
 --     handleRequest :: SharedIO -> IO [FilePath]
 --     handleRequest fileScanSharedIO = do
---         withSharedIO (getDirectoryContents "largefolder")
+--         withSharedIO fileScanSharedIO (getDirectoryContents "largefolder")
 --
 withSharedIO :: SharedIO a -> IO a -> IO a
 withSharedIO (SharedIO ref) f = do
